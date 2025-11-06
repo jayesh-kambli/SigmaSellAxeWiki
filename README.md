@@ -4,27 +4,24 @@ Complete documentation for SigmaSellAxe - Advanced Container Selling Tool for Mi
 
 This is the GitHub Pages wiki repository for SigmaSellAxe.
 
-## Repository Setup
+## Repository
 
-This repository should be public and named `SigmaSellAxe.wiki` or `SigmaSellAxe-wiki`.
+**Repository**: [SigmaSellAxeWiki](https://github.com/jayesh-kambli/SigmaSellAxeWiki)
 
 ## GitHub Pages Setup
 
 1. Go to repository **Settings** → **Pages**
 2. Under **Source**, select:
-   - **Branch**: `main` (or `master`)
+   - **Branch**: `main`
    - **Folder**: `/` (root)
 3. Click **Save**
 
 Your wiki will be available at:
 ```
-https://[username].github.io/SigmaSellAxe-wiki/
+https://jayesh-kambli.github.io/SigmaSellAxeWiki/
 ```
 
-Or if named `SigmaSellAxe.wiki`:
-```
-https://[username].github.io/SigmaSellAxe.wiki/
-```
+**Note**: It may take 1-2 minutes for GitHub Pages to build and deploy.
 
 ## Structure
 
