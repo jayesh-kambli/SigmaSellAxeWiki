@@ -1,0 +1,39 @@
+title: SigmaSellAxe Wiki
+description: Complete documentation for SigmaSellAxe - Advanced Container Selling Tool
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: Getting Started
+    url: /getting-started
+  - title: Configuration
+    url: /configuration
+  - title: Commands
+    url: /commands
+  - title: Permissions
+    url: /permissions
+  - title: Features
+    url: /features
+  - title: Integrations
+    url: /integrations
+  - title: API
+    url: /api
+  - title: Troubleshooting
+    url: /troubleshooting
+  - title: Changelog
+    url: /changelog
+
+# GitHub Pages settings
+# Update these with your wiki repository details
+github: [owner, repository-name]
+show_downloads: true
+
+# Base URL (update after setting up GitHub Pages)
+baseurl: ""  # Leave empty if using username.github.io/repo-name
+url: ""      # Your GitHub Pages URL
+
