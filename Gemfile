@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.3"
+# GitHub Pages compatible gems
+gem "github-pages", group: :jekyll_plugins
 gem "jekyll-theme-minimal"
 gem "jekyll-sitemap"
 gem "jekyll-seo-tag"

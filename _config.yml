@@ -1,6 +1,17 @@
+# GitHub Pages Configuration
 title: SigmaSellAxe Wiki
 description: Complete documentation for SigmaSellAxe - Advanced Container Selling Tool
 theme: jekyll-theme-minimal
+
+# GitHub Pages settings
+github: [owner, repository]
+show_downloads: true
+
+# Base URL for GitHub Pages
+baseurl: "/SigmaSellAxeWiki"  # Repository name
+url: "https://jayesh-kambli.github.io"  # GitHub Pages base URL
+
+# Plugins (GitHub Pages compatible)
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
@@ -28,12 +39,14 @@ navigation:
   - title: Changelog
     url: /changelog
 
-# GitHub Pages settings
-# Update these with your wiki repository details
-github: [owner, repository-name]
-show_downloads: true
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
 
-# Base URL (update after setting up GitHub Pages)
-baseurl: ""  # Leave empty if using username.github.io/repo-name
-url: ""      # Your GitHub Pages URL
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+  - README.md
 
