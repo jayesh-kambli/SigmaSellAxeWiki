@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - SigmaSellAxe Wiki</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SigmaSellAxe Wiki</h1>
+            <p class="subtitle">Complete documentation for SigmaSellAxe</p>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="getting-started.html" class="active">Getting Started</a></li>
+                <li><a href="configuration.html">Configuration</a></li>
+                <li><a href="commands.html">Commands</a></li>
+                <li><a href="permissions.html">Permissions</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="integrations.html">Integrations</a></li>
+                <li><a href="api.html">API</a></li>
+                <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                <li><a href="changelog.html">Changelog</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="content">
+                <h2>Getting Started</h2>
+                <p>This guide will help you get SigmaSellAxe up and running on your server.</p>
+
+                <h3 id="installation">Installation</h3>
+
+                <h4>Step 1: Download</h4>
+                <p>Download the latest JAR file from:</p>
+                <ul>
+                    <li><a href="https://github.com/jayesh-kambli/SigmaSellAxe/releases" target="_blank">GitHub Releases</a></li>
+                    <li><a href="https://builtbybit.com/resources/sigmasellaxe" target="_blank">BuiltByBit</a></li>
+                </ul>
+
+                <h4>Step 2: Install Dependencies</h4>
+                <p><strong>Required:</strong></p>
+                <ul>
+                    <li><strong>Vault</strong> - For economy integration</li>
+                </ul>
+
+                <p><strong>Optional (but recommended):</strong></p>
+                <ul>
+                    <li><strong>ExcellentShop</strong> or <strong>EconomyShopGUI</strong> - For shop integration</li>
+                    <li><strong>Lands</strong>, <strong>GriefPrevention</strong>, or <strong>WorldGuard</strong> - For protection plugin support</li>
+                </ul>
+
+                <h4>Step 3: Place the Plugin</h4>
+                <ol>
+                    <li>Stop your server</li>
+                    <li>Place <code>SigmaSellAxe-2.0.7.jar</code> in your <code>plugins/</code> folder</li>
+                    <li>Start your server</li>
+                </ol>
+
+                <h4>Step 4: First Startup</h4>
+                <p>On first startup, the plugin will:</p>
+                <ul>
+                    <li>Create the configuration folder structure</li>
+                    <li>Detect any installed shop plugins</li>
+                    <li>Generate shop configuration files automatically</li>
+                    <li>Create default configuration files</li>
+                </ul>
+
+                <h3 id="first-time-setup">First Time Setup</h3>
+
+                <h4>1. Configure Main Settings</h4>
+                <p>Edit <code>plugins/SigmaSellAxe/config.yml</code>:</p>
+                <pre><code>sell-axe:
+  name: '&6&lSigma Sell Axe'
+  lore:
+    - '➤ Right-click chests, barrels, or shulkers to sell contents.'
+    - '➤ Left-click to view all sellable items.'
+  durability:
+    enabled: true
+    lose-per-sell: 1</code></pre>
+
+                <h4>2. Configure Shop Integration</h4>
+                <p>If you have ExcellentShop or EconomyShopGUI installed, the plugin will automatically detect and configure shops. You can verify this by running:</p>
+                <pre><code>/sigmasellaxe verifyConfig</code></pre>
+
+                <h4>3. Give Players the Sell Axe</h4>
+                <p>Give players the Sell Axe using:</p>
+                <pre><code>/sigmasellaxe give &lt;player&gt;</code></pre>
+                <p>Or use the server-side command:</p>
+                <pre><code>/sigmasellaxe commands</code></pre>
+
+                <h3 id="basic-configuration">Basic Configuration</h3>
+
+                <h4>Sell Axe Settings</h4>
+                <pre><code>sell-axe:
+  name: '&6&lSigma Sell Axe'  # Display name (supports color codes)
+  lore:                        # Lore lines
+    - 'Line 1'
+    - 'Line 2'
+  durability:
+    enabled: true              # Enable durability loss
+    lose-per-sell: 1          # Durability lost per sell operation</code></pre>
+
+                <h4>Features</h4>
+                <pre><code>features:
+  left-click-gui: true        # Open GUI on left-click
+  prevent-enchanting: true     # Prevent enchanting the Sell Axe</code></pre>
+
+                <h4>Logging</h4>
+                <pre><code>logging:
+  enabled: true                # Enable transaction logging
+  file-logging: true          # Log to file
+  log-rotation: true          # Rotate log files</code></pre>
+
+                <h4>Debug System</h4>
+                <pre><code>debug:
+  enabled: false               # Enable debug logging
+  level: BASIC                 # BASIC, DETAILED, or VERBOSE</code></pre>
+
+                <h3>Next Steps</h3>
+                <ul>
+                    <li><a href="configuration.html">Configuration Guide</a> - Detailed configuration options</li>
+                    <li><a href="commands.html">Commands</a> - All available commands</li>
+                    <li><a href="permissions.html">Permissions</a> - Setting up permissions</li>
+                    <li><a href="features.html">Features</a> - Learn about all features</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p><strong>Version</strong>: 2.0.7 | <strong>Compatibility</strong>: Minecraft 1.21+, Spigot/Paper/Folia</p>
+            <p>&copy; 2024 SigmaSellAxe. Documentation maintained by the community.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
