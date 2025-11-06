@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog - SigmaSellAxe Wiki</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/search.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SigmaSellAxe Wiki</h1>
+            <p class="subtitle">Complete documentation for SigmaSellAxe</p>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="getting-started.html">Getting Started</a></li>
+                <li><a href="configuration.html">Configuration</a></li>
+                <li><a href="commands.html">Commands</a></li>
+                <li><a href="permissions.html">Permissions</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="integrations.html">Integrations</a></li>
+                <li><a href="api.html">API</a></li>
+                <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                <li><a href="changelog.html" class="active">Changelog</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="content">
+                <h2>Changelog</h2>
+                <p>All notable changes to SigmaSellAxe are documented here. Configuration automatically migrates between versions, preserving all user customizations.</p>
+
+                <h3>[2.0.7] - 2024-11-06</h3>
+
+                <h4>Improvements</h4>
+                <ul>
+                    <li><strong>Buy Price Retrieval Refactor</strong>: Unified interface for buy prices
+                        <ul>
+                            <li>Added <code>getBuyPrice()</code> method to <code>ShopPluginInterface</code> for extensibility</li>
+                            <li>Implemented buy price retrieval in ExcellentShopHook and EconomyShopGUIHook</li>
+                            <li>Updated DupeDetector to use unified interface instead of hardcoded shop plugin checks</li>
+                            <li>Makes buy price retrieval work for any shop plugin implementing the interface</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>Bug Fixes</h4>
+                <ul>
+                    <li>Fixed buy price retrieval not working correctly for all shop plugins</li>
+                    <li>Improved error handling in buy price detection</li>
+                    <li>Better logging for buy price retrieval failures</li>
+                </ul>
+
+                <h3>[2.0.6] - 2024-11-06</h3>
+
+                <h4>Major Features</h4>
+
+                <h5>Protection Plugin Integrations</h5>
+                <ul>
+                    <li><strong>GriefPrevention Integration</strong>: Full support for GriefPrevention claim protection</li>
+                    <li><strong>WorldGuard Integration</strong>: Complete WorldGuard region support</li>
+                    <li>Works seamlessly with existing Lands integration</li>
+                </ul>
+
+                <h5>Shop Plugin System Overhaul</h5>
+                <ul>
+                    <li><strong>Unified Shop Plugin Interface</strong>: Complete refactor of shop plugin integration</li>
+                    <li><strong>ExcellentShop Integration</strong>: Full reflection-based support</li>
+                    <li><strong>EconomyShopGUI Integration</strong>: Complete API integration</li>
+                    <li>Automatic shop plugin detection and switching</li>
+                </ul>
+
+                <h5>Duplication Exploit Detection</h5>
+                <ul>
+                    <li><strong>DupeDetector System</strong>: Advanced money duplication detection</li>
+                    <li><code>/sigmasellaxe verifydupe</code> command for admin verification</li>
+                    <li>Visual DupeItemsGUI to display potential issues</li>
+                </ul>
+
+                <h5>GUI Enhancements</h5>
+                <ul>
+                    <li><strong>Sellable Items GUI Sorting</strong>: 4 sort types with single hopper icon</li>
+                    <li>Player-specific sort preferences</li>
+                    <li>Active sort type highlighted in lore</li>
+                </ul>
+
+                <h4>New Features</h4>
+                <ul>
+                    <li>File-based transaction logging</li>
+                    <li>Debug logging system (BASIC, DETAILED, VERBOSE)</li>
+                    <li>Smart configuration migration</li>
+                    <li>Version update notifications</li>
+                </ul>
+
+                <h4>Improvements</h4>
+                <ul>
+                    <li>Better error handling</li>
+                    <li>Improved performance optimizations</li>
+                    <li>Cleaner initialization logging</li>
+                </ul>
+
+                <h4>Configuration Changes</h4>
+                <ul>
+                    <li>Config version updated to <code>3</code></li>
+                    <li>New debug section</li>
+                    <li>New integrations section</li>
+                </ul>
+
+                <h3>Previous Versions</h3>
+                <p>For older versions and detailed change history, see the <a href="https://github.com/jayesh-kambli/SigmaSellAxe/blob/main/CHANGELOG.md" target="_blank">full changelog</a> in the repository.</p>
+
+                <h3>Migration Notes</h3>
+                <p><strong>Important:</strong> Configuration automatically migrates between versions. All user customizations are preserved. No manual intervention required.</p>
+
+                <h3>Version Compatibility</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Version</th>
+                            <th>Minecraft</th>
+                            <th>Java</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2.0.7</td>
+                            <td>1.21+</td>
+                            <td>17+</td>
+                            <td>Current version</td>
+                        </tr>
+                        <tr>
+                            <td>2.0.6</td>
+                            <td>1.21+</td>
+                            <td>17+</td>
+                            <td>Major feature update</td>
+                        </tr>
+                        <tr>
+                            <td>2.0.5</td>
+                            <td>1.21+</td>
+                            <td>17+</td>
+                            <td>Lands integration</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer>
+            <p><strong>Version</strong>: 2.0.7 | <strong>Compatibility</strong>: Minecraft 1.21+, Spigot/Paper/Folia</p>
+            <p>&copy; 2024 SigmaSellAxe. Documentation maintained by the community.</p>
+        </footer>
+    </div>
+</body>
+</html>
+

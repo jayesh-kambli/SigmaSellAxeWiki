@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting - SigmaSellAxe Wiki</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/search.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SigmaSellAxe Wiki</h1>
+            <p class="subtitle">Complete documentation for SigmaSellAxe</p>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="getting-started.html">Getting Started</a></li>
+                <li><a href="configuration.html">Configuration</a></li>
+                <li><a href="commands.html">Commands</a></li>
+                <li><a href="permissions.html">Permissions</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="integrations.html">Integrations</a></li>
+                <li><a href="api.html">API</a></li>
+                <li><a href="troubleshooting.html" class="active">Troubleshooting</a></li>
+                <li><a href="changelog.html">Changelog</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="content">
+                <h2>Troubleshooting</h2>
+                <p>Common issues and their solutions. If you can't find your issue here, check the <a href="https://github.com/jayesh-kambli/SigmaSellAxe/issues" target="_blank">GitHub Issues</a> or join our <a href="https://discord.com/invite/JqWR9zc2cK" target="_blank">Discord Server</a>.</p>
+
+                <h3>Installation Issues</h3>
+
+                <h4>Plugin Won't Load</h4>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Plugin doesn't appear in <code>/plugins</code></li>
+                    <li>Error in console on startup</li>
+                    <li>Plugin fails to enable</li>
+                </ul>
+
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Verify you're using the correct Minecraft version (1.21+)</li>
+                    <li>Check that Vault is installed (required dependency)</li>
+                    <li>Verify the JAR file isn't corrupted (re-download if needed)</li>
+                    <li>Check server console for specific error messages</li>
+                    <li>Ensure you're using Spigot, Paper, or Folia (not CraftBukkit)</li>
+                    <li>Check Java version (requires Java 17+)</li>
+                </ol>
+
+                <h4>Missing Dependencies</h4>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Plugin loads but doesn't function</li>
+                    <li>Errors about missing dependencies</li>
+                    <li>Economy not working</li>
+                </ul>
+
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Install <strong>Vault</strong> (required)</li>
+                    <li>Install shop plugin (ExcellentShop or EconomyShopGUI) for full functionality</li>
+                    <li>Check server console for missing dependency warnings</li>
+                    <li>Verify dependencies are enabled in <code>/plugins</code></li>
+                </ol>
+
+                <h3>Configuration Issues</h3>
+
+                <h4>Shop Plugin Not Detected</h4>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>No shops detected on startup</li>
+                    <li>Prices not working</li>
+                    <li>Using fallback prices only</li>
+                </ul>
+
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Verify shop plugin is installed and enabled</li>
+                    <li>Check shop plugin is working correctly</li>
+                    <li>Run <code>/sigmasellaxe regenerate</code> to re-detect shops</li>
+                    <li>Check debug logs:
+                        <pre><code>debug:
+  enabled: true
+  level: DETAILED</code></pre>
+                    </li>
+                    <li>Verify shop plugin has shops configured</li>
+                    <li>Check that shop plugin version is compatible</li>
+                </ol>
+
+                <h4>Configuration Not Saving</h4>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Changes to config don't persist</li>
+                    <li>Config reverts on restart</li>
+                    <li>Config file appears empty</li>
+                </ul>
+
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Check file permissions (ensure server can write to config file)</li>
+                    <li>Verify config file isn't read-only</li>
+                    <li>Check server console for save errors</li>
+                    <li>Try <code>/sigmasellaxe reload</code> after making changes</li>
+                    <li>Check disk space on server</li>
+                    <li>Verify YAML syntax is correct (use online YAML validator)</li>
+                </ol>
+
+                <h3>Permission Issues</h3>
+
+                <h4>Player Can't Use Sell Axe</h4>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Player can't sell items</li>
+                    <li>No error message</li>
+                    <li>Right-click does nothing</li>
+                </ul>
+
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Check player has <code>sigmasellaxe.use</code> permission</li>
+                    <li>Verify permission plugin is working</li>
+                    <li>Check server console for permission errors</li>
+                    <li>Try giving player <code>sigmasellaxe.*</code> temporarily to test</li>
+                    <li>Check if player is holding the Sell Axe (not a regular axe)</li>
+                    <li>Verify the Sell Axe was given using <code>/sigmasellaxe give</code></li>
+                </ol>
+
+                <h4>Admin Commands Not Working</h4>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Admin can't use <code>/sigmasellaxe reload</code></li>
+                    <li>Commands return "no permission"</li>
+                    <li>OP status not recognized</li>
+                </ul>
+
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Verify admin has <code>op</code> status or specific permission</li>
+                    <li>Check permission plugin recognizes the permission node</li>
+                    <li>Try using <code>sigmasellaxe.*</code> permission</li>
+                    <li>Check for conflicting permission groups</li>
+                    <li>Verify permission plugin is loaded before SigmaSellAxe</li>
+                </ol>
+
+                <h3>Selling Issues</h3>
+
+                <h4>Items Not Selling</h4>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Right-click does nothing</li>
+                    <li>No items sold</li>
+                    <li>No error message</li>
+                </ul>
+
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Verify player is holding the Sell Axe</li>
+                    <li>Check container has sellable items</li>
+                    <li>Verify player has permission in protection plugin (Lands/GriefPrevention/WorldGuard)</li>
+                    <li>Check debug logs for specific errors</li>
+                    <li>Verify items exist in shop plugin</li>
+                    <li>Check if items are disabled in shop config</li>
+                    <li>Ensure Vault economy is working</li>
+                </ol>
+
+                <h4>Wrong Prices</h4>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Items selling for wrong prices</li>
+                    <li>Prices not matching shop plugin</li>
+                    <li>Prices seem too high or too low</li>
+                </ul>
+
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Run <code>/sigmasellaxe verifyConfig</code> to check configuration</li>
+                    <li>Verify shop plugin prices are correct</li>
+                    <li>Check for boost multipliers in shop configs</li>
+                    <li>Regenerate shop configs: <code>/sigmasellaxe regenerate</code></li>
+                    <li>Check if global boost is affecting prices</li>
+                    <li>Verify correct shop plugin is selected</li>
+                </ol>
+
+                <h4>Durability Not Working</h4>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Sell Axe doesn't lose durability</li>
+                    <li>Durability loss too high/low</li>
+                    <li>Sell Axe breaks too quickly</li>
+                </ul>
+
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Check durability is enabled in config:
+                        <pre><code>sell-axe:
+  durability:
+    enabled: true
+    lose-per-sell: 1</code></pre>
+                    </li>
+                    <li>Verify the Sell Axe is the correct item (identified by NBT, not name)</li>
+                    <li>Check if durability loss is set too high (reduce <code>lose-per-sell</code>)</li>
+                    <li>Verify durability is only lost on successful sells</li>
+                </ol>
+
+                <h3>Performance Issues</h3>
+
+                <h4>Server Lag When Selling</h4>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Server freezes when selling large amounts</li>
+                    <li>TPS drops during transactions</li>
+                    <li>Players experience lag</li>
+                </ul>
+
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Check transaction limits (max 5,000 items per transaction)</li>
+                    <li>Reduce max items per transaction if needed</li>
+                    <li>Enable debug logging to identify bottlenecks</li>
+                    <li>Consider using Folia for better performance</li>
+                    <li>Check if shop plugin is causing lag</li>
+                    <li>Verify economy plugin performance</li>
+                </ol>
+
+                <h4>High Memory Usage</h4>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Server using too much memory</li>
+                    <li>Out of memory errors</li>
+                    <li>Server crashes</li>
+                </ul>
+
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Check log file rotation is enabled</li>
+                    <li>Limit transaction sizes</li>
+                    <li>Review debug logging level (VERBOSE uses more memory)</li>
+                    <li>Check for memory leaks in other plugins</li>
+                    <li>Clean up old log files regularly</li>
+                    <li>Increase server memory allocation if needed</li>
+                </ol>
+
+                <h3>Integration Issues</h3>
+
+                <h4>Protection Plugin Not Working</h4>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Players can sell in protected areas</li>
+                    <li>Protection checks not working</li>
+                    <li>No protection validation</li>
+                </ul>
+
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Verify protection plugin is installed and enabled</li>
+                    <li>Check integration is enabled in config:
+                        <pre><code>integrations:
+  lands-integration: true</code></pre>
+                    </li>
+                    <li>Check server console for integration messages</li>
+                    <li>Verify protection plugin is working correctly</li>
+                    <li>Test protection plugin independently</li>
+                    <li>Check protection plugin version compatibility</li>
+                </ol>
+
+                <h4>Shop Plugin Integration Issues</h4>
+                <p><strong>Symptoms:</strong></p>
+                <ul>
+                    <li>Prices not updating</li>
+                    <li>Shops not detected</li>
+                    <li>Integration errors in console</li>
+                </ul>
+
+                <p><strong>Solutions:</strong></p>
+                <ol>
+                    <li>Verify shop plugin is installed and enabled</li>
+                    <li>Check shop plugin is working correctly</li>
+                    <li>Run <code>/sigmasellaxe regenerate</code> to re-detect shops</li>
+                    <li>Check debug logs for integration errors</li>
+                    <li>Verify shop plugin version is compatible</li>
+                    <li>Check shop plugin API compatibility</li>
+                </ol>
+
+                <h3>Debug Information</h3>
+
+                <h4>Enabling Debug Logging</h4>
+                <p>Enable debug logging to get detailed information:</p>
+                <pre><code>debug:
+  enabled: true
+  level: DETAILED  # BASIC, DETAILED, or VERBOSE</code></pre>
+
+                <p><strong>Debug Levels:</strong></p>
+                <ul>
+                    <li><strong>BASIC</strong> - Essential debug information</li>
+                    <li><strong>DETAILED</strong> - More detailed debugging</li>
+                    <li><strong>VERBOSE</strong> - Maximum verbosity (use only when troubleshooting)</li>
+                </ul>
+
+                <h4>Getting Help</h4>
+                <p>When reporting issues, provide:</p>
+                <ol>
+                    <li><strong>Server Version</strong> - e.g., Paper 1.21.6</li>
+                    <li><strong>Plugin Version</strong> - e.g., SigmaSellAxe 2.0.7</li>
+                    <li><strong>Error Messages</strong> - From console/logs</li>
+                    <li><strong>Steps to Reproduce</strong> - What you did to cause the issue</li>
+                    <li><strong>Installed Plugins</strong> - List of all plugins</li>
+                    <li><strong>Configuration</strong> - Relevant config sections (remove sensitive data)</li>
+                </ol>
+
+                <h4>Useful Commands</h4>
+                <ul>
+                    <li><code>/sigmasellaxe verifyConfig</code> - Check configuration</li>
+                    <li><code>/sigmasellaxe verifyDupe</code> - Check for dupe exploits</li>
+                    <li><code>/sigmasellaxe reload</code> - Reload configuration</li>
+                    <li><code>/sigmasellaxe regenerate</code> - Regenerate shop configs</li>
+                </ul>
+
+                <h3>Performance Tips</h3>
+                <ol>
+                    <li><strong>Use Folia</strong> - Better performance on multi-threaded servers</li>
+                    <li><strong>Limit Transaction Size</strong> - Keep transactions reasonable</li>
+                    <li><strong>Enable Log Rotation</strong> - Prevents log files from growing too large</li>
+                    <li><strong>Disable Verbose Debug</strong> - Only enable when troubleshooting</li>
+                    <li><strong>Regular Maintenance</strong> - Clean up old log files</li>
+                    <li><strong>Optimize Shop Configs</strong> - Remove unused items from shop configs</li>
+                </ol>
+
+                <h3>Still Need Help?</h3>
+                <ul>
+                    <li>Check the <a href="https://github.com/jayesh-kambli/SigmaSellAxe/issues" target="_blank">GitHub Issues</a></li>
+                    <li>Join our <a href="https://discord.com/invite/JqWR9zc2cK" target="_blank">Discord Server</a></li>
+                    <li>Review the <a href="configuration.html">Configuration Guide</a></li>
+                    <li>Check the <a href="integrations.html">Integrations</a> page</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p><strong>Version</strong>: 2.0.7 | <strong>Compatibility</strong>: Minecraft 1.21+, Spigot/Paper/Folia</p>
+            <p>&copy; 2024 SigmaSellAxe. Documentation maintained by the community.</p>
+        </footer>
+    </div>
+</body>
+</html>
+

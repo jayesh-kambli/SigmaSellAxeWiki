@@ -242,6 +242,95 @@ footer p {
     .doc-grid {
         grid-template-columns: 1fr;
     }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    pre {
+        font-size: 0.85rem;
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .content h2 {
+        font-size: 1.5rem;
+    }
+
+    .content h3 {
+        font-size: 1.2rem;
+    }
+
+    .content h4 {
+        font-size: 1rem;
+    }
+}
+
+/* Search functionality */
+.search-container {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.search-box {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.search-box:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.search-results {
+    margin-top: 1rem;
+    display: none;
+}
+
+.search-results.active {
+    display: block;
+}
+
+.search-result-item {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-result-item:hover {
+    background: #f0f0f0;
+}
+
+.search-result-item h4 {
+    margin: 0 0 0.25rem 0;
+    color: #667eea;
+}
+
+.search-result-item p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
 }
 
 /* Syntax highlighting for code blocks */

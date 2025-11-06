@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commands - SigmaSellAxe Wiki</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/search.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SigmaSellAxe Wiki</h1>
+            <p class="subtitle">Complete documentation for SigmaSellAxe</p>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="getting-started.html">Getting Started</a></li>
+                <li><a href="configuration.html">Configuration</a></li>
+                <li><a href="commands.html" class="active">Commands</a></li>
+                <li><a href="permissions.html">Permissions</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="integrations.html">Integrations</a></li>
+                <li><a href="api.html">API</a></li>
+                <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                <li><a href="changelog.html">Changelog</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="content">
+                <h2>Commands</h2>
+                <p>Complete reference for all SigmaSellAxe commands. All commands use <code>/sigmasellaxe</code> as the base command.</p>
+
+                <h3>Player Commands</h3>
+
+                <h4>/sigmasellaxe</h4>
+                <p>Shows the command help menu with all available commands.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Permission</td>
+                            <td><code>sigmasellaxe.use</code> (default: true)</td>
+                        </tr>
+                        <tr>
+                            <td>Usage</td>
+                            <td><code>/sigmasellaxe</code></td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td>Displays help menu with all available commands</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>/sigmasellaxe items</h4>
+                <p>Opens the sellable items GUI showing all sellable items with prices and boost information.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Permission</td>
+                            <td><code>sigmasellaxe.items</code> (default: true)</td>
+                        </tr>
+                        <tr>
+                            <td>Usage</td>
+                            <td><code>/sigmasellaxe items</code></td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td>Opens GUI with all sellable items, prices, and boost multipliers</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>GUI Features:</strong></p>
+                <ul>
+                    <li>Shows all sellable items from all shops</li>
+                    <li>Displays prices from shop plugins</li>
+                    <li>Shows boost multipliers</li>
+                    <li>4 sorting types (A-Z, Z-A, Price High→Low, Price Low→High)</li>
+                    <li>Pagination support for large item lists</li>
+                    <li>Color-coded item display</li>
+                </ul>
+
+                <h3>Admin Commands</h3>
+
+                <h4>/sigmasellaxe give [player]</h4>
+                <p>Gives the Sell Axe tool to a player.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Permission</td>
+                            <td><code>sigmasellaxe.give</code> (default: op)</td>
+                        </tr>
+                        <tr>
+                            <td>Usage</td>
+                            <td><code>/sigmasellaxe give &lt;player&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td>Arguments</td>
+                            <td><code>player</code> - Player name or selector (<code>@p</code>, <code>@a</code>, etc.)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Examples:</strong></p>
+                <pre><code>/sigmasellaxe give Steve
+/sigmasellaxe give @p  # Give to nearest player
+/sigmasellaxe give @a  # Give to all players</code></pre>
+
+                <h4>/sigmasellaxe reload</h4>
+                <p>Reloads all plugin configurations without restarting the server.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Permission</td>
+                            <td><code>sigmasellaxe.reload</code> (default: op)</td>
+                        </tr>
+                        <tr>
+                            <td>Usage</td>
+                            <td><code>/sigmasellaxe reload</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>What it reloads:</strong></p>
+                <ul>
+                    <li>Main configuration (<code>config.yml</code>)</li>
+                    <li>All shop configurations</li>
+                    <li>Protection plugin integrations</li>
+                    <li>Shop plugin integrations</li>
+                </ul>
+
+                <h4>/sigmasellaxe regenerate</h4>
+                <p>Regenerates shop configuration files from your shop plugin.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Permission</td>
+                            <td><code>sigmasellaxe.regenerate</code> (default: op)</td>
+                        </tr>
+                        <tr>
+                            <td>Usage</td>
+                            <td><code>/sigmasellaxe regenerate</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>When to use:</strong></p>
+                <ul>
+                    <li>After adding/removing shops in ExcellentShop or EconomyShopGUI</li>
+                    <li>After changing shop items in your shop plugin</li>
+                    <li>If shop detection seems incorrect</li>
+                    <li>After updating your shop plugin</li>
+                </ul>
+
+                <p><strong>Note:</strong> This command preserves your custom boosts and settings. Only new items are added and removed items are disabled (not deleted).</p>
+
+                <h4>/sigmasellaxe verifyConfig</h4>
+                <p>Verifies shop configuration and checks for issues.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Permission</td>
+                            <td><code>sigmasellaxe.verify</code> (default: op)</td>
+                        </tr>
+                        <tr>
+                            <td>Usage</td>
+                            <td><code>/sigmasellaxe verifyConfig</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Checks performed:</strong></p>
+                <ul>
+                    <li>Shop plugin detection status</li>
+                    <li>Shop configuration validity</li>
+                    <li>Missing items in shops</li>
+                    <li>Configuration errors</li>
+                    <li>Integration status</li>
+                </ul>
+
+                <h4>/sigmasellaxe verifyDupe</h4>
+                <p>Checks for potential money duplication exploits.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Permission</td>
+                            <td><code>sigmasellaxe.verify</code> (default: op)</td>
+                        </tr>
+                        <tr>
+                            <td>Usage</td>
+                            <td><code>/sigmasellaxe verifyDupe</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>What it does:</strong></p>
+                <ul>
+                    <li>Compares boosted sell prices with buy prices</li>
+                    <li>Identifies items where selling (with boost) is more profitable than buying</li>
+                    <li>Opens GUI showing potential dupe items</li>
+                    <li>Displays buy price, sell price, and boosted sell price for each item</li>
+                </ul>
+
+                <p><strong>How it works:</strong></p>
+                <p>For each sellable item, the plugin:</p>
+                <ol>
+                    <li>Gets the buy price from the shop plugin</li>
+                    <li>Gets the base sell price from the shop plugin</li>
+                    <li>Calculates the boosted sell price (base price × (1 + global boost + item boost))</li>
+                    <li>If boosted sell price > buy price, it's flagged as a potential dupe</li>
+                </ol>
+
+                <h4>/sigmasellaxe commands</h4>
+                <p>Shows server-side give commands for automation.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Permission</td>
+                            <td><code>sigmasellaxe.give</code> (default: op)</td>
+                        </tr>
+                        <tr>
+                            <td>Usage</td>
+                            <td><code>/sigmasellaxe commands</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Output example:</strong></p>
+                <pre><code>Server-side commands:
+give PlayerName minecraft:diamond_axe{display:{Name:'{"text":"Sigma Sell Axe"}'},...}</code></pre>
+
+                <p><strong>Useful for:</strong></p>
+                <ul>
+                    <li>Server automation scripts</li>
+                    <li>Custom give commands</li>
+                    <li>Integration with other plugins</li>
+                    <li>One-time setup scripts</li>
+                </ul>
+
+                <h3>Command Examples</h3>
+
+                <h4>Basic Usage</h4>
+                <pre><code># Give Sell Axe to a player
+/sigmasellaxe give Steve
+
+# Open items GUI
+/sigmasellaxe items
+
+# Reload configuration
+/sigmasellaxe reload</code></pre>
+
+                <h4>Advanced Usage</h4>
+                <pre><code># Regenerate shop configs after adding new shop
+/sigmasellaxe regenerate
+
+# Verify configuration
+/sigmasellaxe verifyConfig
+
+# Check for dupe exploits
+/sigmasellaxe verifyDupe
+
+# Get server-side give command
+/sigmasellaxe commands</code></pre>
+
+                <h3>Tab Completion</h3>
+                <p>Tab completion is available for:</p>
+                <ul>
+                    <li>Player names in <code>/sigmasellaxe give</code></li>
+                    <li>Command subcommands</li>
+                </ul>
+
+                <h3>Command Aliases</h3>
+                <p>Currently, there are no command aliases. All commands use <code>/sigmasellaxe</code> as the base.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p><strong>Version</strong>: 2.0.7 | <strong>Compatibility</strong>: Minecraft 1.21+, Spigot/Paper/Folia</p>
+            <p>&copy; 2024 SigmaSellAxe. Documentation maintained by the community.</p>
+        </footer>
+    </div>
+</body>
+</html>
+

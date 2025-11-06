@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration - SigmaSellAxe Wiki</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/search.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SigmaSellAxe Wiki</h1>
+            <p class="subtitle">Complete documentation for SigmaSellAxe</p>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="getting-started.html">Getting Started</a></li>
+                <li><a href="configuration.html" class="active">Configuration</a></li>
+                <li><a href="commands.html">Commands</a></li>
+                <li><a href="permissions.html">Permissions</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="integrations.html">Integrations</a></li>
+                <li><a href="api.html">API</a></li>
+                <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                <li><a href="changelog.html">Changelog</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="content">
+                <h2>Configuration</h2>
+                <p>Complete guide to configuring SigmaSellAxe. All configuration files use YAML format and support automatic migration between versions.</p>
+
+                <h3 id="main-configuration">Main Configuration</h3>
+                <p>The main configuration file is located at <code>plugins/SigmaSellAxe/config.yml</code>.</p>
+
+                <h4>Sell Axe Settings</h4>
+                <pre><code>sell-axe:
+  # Display name (supports color codes with &)
+  name: '&6&lSigma Sell Axe'
+  
+  # Lore lines displayed on the Sell Axe
+  lore:
+    - '&7➤ Right-click chests, barrels, or shulkers to sell contents.'
+    - '&7➤ Left-click to view all sellable items.'
+  
+  # Durability settings
+  durability:
+    enabled: true      # Enable/disable durability loss
+    lose-per-sell: 1   # Durability lost per sell operation</code></pre>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>name</code></td>
+                            <td>String</td>
+                            <td><code>'&6&lSigma Sell Axe'</code></td>
+                            <td>Display name of the Sell Axe (supports color codes with <code>&</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><code>lore</code></td>
+                            <td>List</td>
+                            <td>2 lines</td>
+                            <td>List of lore lines shown on the Sell Axe</td>
+                        </tr>
+                        <tr>
+                            <td><code>durability.enabled</code></td>
+                            <td>Boolean</td>
+                            <td><code>true</code></td>
+                            <td>Enable/disable durability loss when selling</td>
+                        </tr>
+                        <tr>
+                            <td><code>durability.lose-per-sell</code></td>
+                            <td>Integer</td>
+                            <td><code>1</code></td>
+                            <td>Amount of durability lost per sell operation</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Features</h4>
+                <pre><code>features:
+  left-click-gui: true        # Open GUI on left-click with Sell Axe
+  prevent-enchanting: true    # Prevent enchanting the Sell Axe</code></pre>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>left-click-gui</code></td>
+                            <td>Boolean</td>
+                            <td><code>true</code></td>
+                            <td>Open sellable items GUI when left-clicking with Sell Axe</td>
+                        </tr>
+                        <tr>
+                            <td><code>prevent-enchanting</code></td>
+                            <td>Boolean</td>
+                            <td><code>true</code></td>
+                            <td>Prevent players from enchanting the Sell Axe</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Logging</h4>
+                <pre><code>logging:
+  enabled: true         # Enable transaction logging to console
+  file-logging: true    # Enable logging to files
+  log-rotation: true    # Automatically rotate log files</code></pre>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>enabled</code></td>
+                            <td>Boolean</td>
+                            <td><code>true</code></td>
+                            <td>Enable transaction logging to console</td>
+                        </tr>
+                        <tr>
+                            <td><code>file-logging</code></td>
+                            <td>Boolean</td>
+                            <td><code>true</code></td>
+                            <td>Enable logging to files in <code>plugins/SigmaSellAxe/logs/</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>log-rotation</code></td>
+                            <td>Boolean</td>
+                            <td><code>true</code></td>
+                            <td>Automatically rotate log files to prevent large files</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Debug System</h4>
+                <pre><code>debug:
+  enabled: false    # Enable debug logging
+  level: BASIC      # BASIC, DETAILED, or VERBOSE</code></pre>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>enabled</code></td>
+                            <td>Boolean</td>
+                            <td><code>false</code></td>
+                            <td>Enable debug logging for troubleshooting</td>
+                        </tr>
+                        <tr>
+                            <td><code>level</code></td>
+                            <td>String</td>
+                            <td><code>BASIC</code></td>
+                            <td>Debug level: <code>BASIC</code>, <code>DETAILED</code>, or <code>VERBOSE</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Debug Levels:</strong></p>
+                <ul>
+                    <li><strong>BASIC</strong> - Essential debug information (recommended for troubleshooting)</li>
+                    <li><strong>DETAILED</strong> - More detailed information including permission checks and price lookups</li>
+                    <li><strong>VERBOSE</strong> - Maximum verbosity including all API calls and internal operations</li>
+                </ul>
+
+                <h4>Economy Settings</h4>
+                <pre><code>economy:
+  # Shop plugin selection
+  shop-plugin: excellentshop  # 'excellentshop', 'economyshopgui', or 'none'
+  
+  # Fallback prices (used when shop plugin unavailable or item not found)
+  fallback-prices:
+    DIAMOND_ORE: 150.0
+    EMERALD_ORE: 200.0
+    IRON_ORE: 50.0
+    # ... more items</code></pre>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>shop-plugin</code></td>
+                            <td>String</td>
+                            <td><code>excellentshop</code></td>
+                            <td>Shop plugin to use: <code>excellentshop</code>, <code>economyshopgui</code>, or <code>none</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>fallback-prices</code></td>
+                            <td>Map</td>
+                            <td>See config</td>
+                            <td>Prices for items not in shop plugins (format: <code>MATERIAL_NAME: price</code>)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Integrations</h4>
+                <pre><code>integrations:
+  lands-integration: true           # Lands plugin integration
+  griefprevention-integration: true # GriefPrevention plugin integration
+  worldguard-integration: true      # WorldGuard plugin integration</code></pre>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>lands-integration</code></td>
+                            <td>Boolean</td>
+                            <td><code>true</code></td>
+                            <td>Enable Lands plugin integration for area protection</td>
+                        </tr>
+                        <tr>
+                            <td><code>griefprevention-integration</code></td>
+                            <td>Boolean</td>
+                            <td><code>true</code></td>
+                            <td>Enable GriefPrevention plugin integration for claim protection</td>
+                        </tr>
+                        <tr>
+                            <td><code>worldguard-integration</code></td>
+                            <td>Boolean</td>
+                            <td><code>true</code></td>
+                            <td>Enable WorldGuard plugin integration for region protection</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 id="shop-configuration">Shop Configuration</h3>
+                <p>Shop-specific configuration files are located in <code>plugins/SigmaSellAxe/shops/</code>. These files are automatically generated when shops are detected.</p>
+
+                <h4>Shop File Structure</h4>
+                <pre><code>shop:
+  id: 'farming'           # Unique shop identifier
+  name: 'Farming Shop'    # Display name
+  enabled: true            # Enable/disable this shop
+  priority: 1              # Priority when multiple shops have same item
+
+# Global boost for all items in this shop
+global-boost: 0.0
+
+# Item-specific settings
+items:
+  PUMPKIN:
+    boost: 1.0      # 100% boost multiplier
+    enabled: true    # Enable/disable selling this item
+  MELON:
+    boost: 0.5      # 50% boost multiplier
+    enabled: true</code></pre>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>shop.id</code></td>
+                            <td>String</td>
+                            <td>Unique shop identifier (matches shop plugin's shop ID)</td>
+                        </tr>
+                        <tr>
+                            <td><code>shop.name</code></td>
+                            <td>String</td>
+                            <td>Display name of the shop</td>
+                        </tr>
+                        <tr>
+                            <td><code>shop.enabled</code></td>
+                            <td>Boolean</td>
+                            <td>Enable/disable this shop (disabled shops are ignored)</td>
+                        </tr>
+                        <tr>
+                            <td><code>shop.priority</code></td>
+                            <td>Integer</td>
+                            <td>Priority when multiple shops have the same item (higher = preferred)</td>
+                        </tr>
+                        <tr>
+                            <td><code>global-boost</code></td>
+                            <td>Double</td>
+                            <td>Global boost multiplier for all items in this shop (0.0 = no boost, 1.0 = 100% boost)</td>
+                        </tr>
+                        <tr>
+                            <td><code>items.MATERIAL.boost</code></td>
+                            <td>Double</td>
+                            <td>Item-specific boost multiplier</td>
+                        </tr>
+                        <tr>
+                            <td><code>items.MATERIAL.enabled</code></td>
+                            <td>Boolean</td>
+                            <td>Enable/disable selling this specific item</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Boost Calculation</h4>
+                <p>The final sell price is calculated as:</p>
+                <pre><code>finalPrice = basePrice × (1 + globalBoost + itemBoost)</code></pre>
+
+                <p><strong>Example:</strong></p>
+                <ul>
+                    <li>Base price: $100</li>
+                    <li>Global boost: 0.5 (50%)</li>
+                    <li>Item boost: 1.0 (100%)</li>
+                    <li>Final price: $100 × (1 + 0.5 + 1.0) = $250</li>
+                </ul>
+
+                <h3 id="config-migration">Config Migration</h3>
+                <p>The plugin automatically migrates your configuration when updating versions. This ensures:</p>
+                <ul>
+                    <li>New configuration keys are added automatically</li>
+                    <li>Deprecated keys are removed safely</li>
+                    <li>Your custom settings are preserved</li>
+                    <li>Config version is updated automatically</li>
+                </ul>
+
+                <p>Migration happens automatically on:</p>
+                <ul>
+                    <li>Plugin startup</li>
+                    <li>Configuration reload (<code>/sigmasellaxe reload</code>)</li>
+                </ul>
+
+                <h3>Reloading Configuration</h3>
+                <p>Reload the configuration without restarting the server:</p>
+                <pre><code>/sigmasellaxe reload</code></pre>
+
+                <p>This will:</p>
+                <ul>
+                    <li>Reload main config (<code>config.yml</code>)</li>
+                    <li>Reload all shop configs</li>
+                    <li>Reinitialize protection plugin integrations</li>
+                    <li>Reinitialize shop plugin integrations</li>
+                    <li>Apply new settings immediately</li>
+                </ul>
+
+                <h3>Regenerating Shop Configs</h3>
+                <p>If you've changed your shop plugin configuration, regenerate shop configs:</p>
+                <pre><code>/sigmasellaxe regenerate</code></pre>
+
+                <p>This will:</p>
+                <ul>
+                    <li>Re-detect all shops from your shop plugin</li>
+                    <li>Update shop configuration files</li>
+                    <li>Preserve your custom boosts and settings</li>
+                    <li>Add new items from shops</li>
+                    <li>Remove items no longer in shops</li>
+                </ul>
+
+                <h3>Configuration Best Practices</h3>
+                <ul>
+                    <li><strong>Backup before changes</strong> - Always backup your config before making major changes</li>
+                    <li><strong>Test in development</strong> - Test configuration changes on a development server first</li>
+                    <li><strong>Use reload command</strong> - Use <code>/sigmasellaxe reload</code> instead of restarting the server</li>
+                    <li><strong>Check logs</strong> - Review server logs after configuration changes</li>
+                    <li><strong>Verify config</strong> - Use <code>/sigmasellaxe verifyConfig</code> to check for issues</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p><strong>Version</strong>: 2.0.7 | <strong>Compatibility</strong>: Minecraft 1.21+, Spigot/Paper/Folia</p>
+            <p>&copy; 2024 SigmaSellAxe. Documentation maintained by the community.</p>
+        </footer>
+    </div>
+</body>
+</html>
+

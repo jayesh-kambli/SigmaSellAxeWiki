@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - SigmaSellAxe Wiki</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/search.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SigmaSellAxe Wiki</h1>
+            <p class="subtitle">Complete documentation for SigmaSellAxe</p>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="getting-started.html">Getting Started</a></li>
+                <li><a href="configuration.html">Configuration</a></li>
+                <li><a href="commands.html">Commands</a></li>
+                <li><a href="permissions.html">Permissions</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="integrations.html">Integrations</a></li>
+                <li><a href="api.html" class="active">API</a></li>
+                <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                <li><a href="changelog.html">Changelog</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="content">
+                <h2>API Documentation</h2>
+                <p>Complete developer documentation for integrating with SigmaSellAxe. This API allows other plugins to interact with SigmaSellAxe programmatically.</p>
+
+                <h3>Getting the Plugin Instance</h3>
+                <p>All API interactions start by obtaining the plugin instance:</p>
+                <pre><code>SigmaSellAxe plugin = (SigmaSellAxe) Bukkit.getPluginManager().getPlugin("SigmaSellAxe");
+if (plugin == null || !plugin.isEnabled()) {
+    // Plugin not loaded
+    return;
+}</code></pre>
+
+                <h3>Core API Classes</h3>
+
+                <h4>SigmaSellAxe</h4>
+                <p>Main plugin class providing access to all managers and hooks.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Return Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>getInstance()</code></td>
+                            <td><code>SigmaSellAxe</code></td>
+                            <td>Get the plugin instance (static method)</td>
+                        </tr>
+                        <tr>
+                            <td><code>getConfigManager()</code></td>
+                            <td><code>ConfigManager</code></td>
+                            <td>Get configuration manager for accessing configs</td>
+                        </tr>
+                        <tr>
+                            <td><code>getEconomyHook()</code></td>
+                            <td><code>EconomyHook</code></td>
+                            <td>Get economy hook for price operations</td>
+                        </tr>
+                        <tr>
+                            <td><code>getShopDetector()</code></td>
+                            <td><code>ShopDetector</code></td>
+                            <td>Get shop detector for shop management</td>
+                        </tr>
+                        <tr>
+                            <td><code>getLandsHook()</code></td>
+                            <td><code>LandsHook</code></td>
+                            <td>Get Lands integration hook</td>
+                        </tr>
+                        <tr>
+                            <td><code>getGriefPreventionHook()</code></td>
+                            <td><code>GriefPreventionHook</code></td>
+                            <td>Get GriefPrevention integration hook</td>
+                        </tr>
+                        <tr>
+                            <td><code>getWorldGuardHook()</code></td>
+                            <td><code>WorldGuardHook</code></td>
+                            <td>Get WorldGuard integration hook</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>ConfigManager</h4>
+                <p>Manages all plugin configuration files and settings.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Return Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>getMainConfig()</code></td>
+                            <td><code>FileConfiguration</code></td>
+                            <td>Get main configuration file</td>
+                        </tr>
+                        <tr>
+                            <td><code>getShopConfig(String shopId)</code></td>
+                            <td><code>FileConfiguration</code></td>
+                            <td>Get shop-specific configuration</td>
+                        </tr>
+                        <tr>
+                            <td><code>getAllShopConfigs()</code></td>
+                            <td><code>Map&lt;String, FileConfiguration&gt;</code></td>
+                            <td>Get all shop configurations</td>
+                        </tr>
+                        <tr>
+                            <td><code>getItemBoost(String shopId, String material)</code></td>
+                            <td><code>double</code></td>
+                            <td>Get item boost multiplier for a material in a shop</td>
+                        </tr>
+                        <tr>
+                            <td><code>getShopGlobalBoost(String shopId)</code></td>
+                            <td><code>double</code></td>
+                            <td>Get global boost multiplier for a shop</td>
+                        </tr>
+                        <tr>
+                            <td><code>getFallbackPrice(String material)</code></td>
+                            <td><code>double</code></td>
+                            <td>Get fallback price for a material (when not in shops)</td>
+                        </tr>
+                        <tr>
+                            <td><code>getSelectedShopPlugin()</code></td>
+                            <td><code>String</code></td>
+                            <td>Get selected shop plugin name ("excellentshop", "economyshopgui", "none")</td>
+                        </tr>
+                        <tr>
+                            <td><code>isItemDisabled(String shopId, String material)</code></td>
+                            <td><code>boolean</code></td>
+                            <td>Check if an item is disabled in a shop</td>
+                        </tr>
+                        <tr>
+                            <td><code>isShopEnabled(String shopId)</code></td>
+                            <td><code>boolean</code></td>
+                            <td>Check if a shop is enabled</td>
+                        </tr>
+                        <tr>
+                            <td><code>reload()</code></td>
+                            <td><code>void</code></td>
+                            <td>Reload all configurations</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>EconomyHook</h4>
+                <p>Handles economy operations and shop plugin integration.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Return Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>getShopPrice(Player player, Material material)</code></td>
+                            <td><code>double</code></td>
+                            <td>Get sell price for material (with permission checks)</td>
+                        </tr>
+                        <tr>
+                            <td><code>getShopPriceForGUI(Material material)</code></td>
+                            <td><code>double</code></td>
+                            <td>Get sell price for GUI display (no permission checks)</td>
+                        </tr>
+                        <tr>
+                            <td><code>getBestSellProduct(Player player, Material material)</code></td>
+                            <td><code>Object</code></td>
+                            <td>Get best sell product from shop plugin (shop-specific)</td>
+                        </tr>
+                        <tr>
+                            <td><code>getShopPluginManager()</code></td>
+                            <td><code>ShopPluginManager</code></td>
+                            <td>Get shop plugin manager</td>
+                        </tr>
+                        <tr>
+                            <td><code>isEconomyAvailable()</code></td>
+                            <td><code>boolean</code></td>
+                            <td>Check if Vault economy is available</td>
+                        </tr>
+                        <tr>
+                            <td><code>getEconomyProvider()</code></td>
+                            <td><code>String</code></td>
+                            <td>Get economy provider name (e.g., "Essentials", "CMI")</td>
+                        </tr>
+                        <tr>
+                            <td><code>addMoney(Player player, double amount)</code></td>
+                            <td><code>boolean</code></td>
+                            <td>Add money to player's account</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>ShopPluginManager</h4>
+                <p>Manages shop plugin integrations and provides unified access to shop prices.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Return Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>getActiveShopPlugin()</code></td>
+                            <td><code>ShopPluginInterface</code></td>
+                            <td>Get currently active shop plugin</td>
+                        </tr>
+                        <tr>
+                            <td><code>getPrice(Player player, Material material)</code></td>
+                            <td><code>double</code></td>
+                            <td>Get sell price from active shop plugin</td>
+                        </tr>
+                        <tr>
+                            <td><code>getBuyPrice(Player player, Material material)</code></td>
+                            <td><code>double</code></td>
+                            <td>Get buy price from active shop plugin</td>
+                        </tr>
+                        <tr>
+                            <td><code>getPriceForGUI(Material material)</code></td>
+                            <td><code>double</code></td>
+                            <td>Get price for GUI display (no permission checks)</td>
+                        </tr>
+                        <tr>
+                            <td><code>getBestSellProduct(Player player, Material material)</code></td>
+                            <td><code>Object</code></td>
+                            <td>Get best sell product from active shop plugin</td>
+                        </tr>
+                        <tr>
+                            <td><code>isShopPluginAvailable(String pluginName)</code></td>
+                            <td><code>boolean</code></td>
+                            <td>Check if a shop plugin is available</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>ShopPluginInterface</h4>
+                <p>Interface for shop plugin integrations. Implement this to add support for new shop plugins.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Return Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>getPluginName()</code></td>
+                            <td><code>String</code></td>
+                            <td>Get the name of the shop plugin</td>
+                        </tr>
+                        <tr>
+                            <td><code>isAvailable()</code></td>
+                            <td><code>boolean</code></td>
+                            <td>Check if the shop plugin is available</td>
+                        </tr>
+                        <tr>
+                            <td><code>getPrice(Player player, Material material)</code></td>
+                            <td><code>double</code></td>
+                            <td>Get sell price for a material (with permission checks)</td>
+                        </tr>
+                        <tr>
+                            <td><code>getPriceForGUI(Material material)</code></td>
+                            <td><code>double</code></td>
+                            <td>Get sell price for GUI display</td>
+                        </tr>
+                        <tr>
+                            <td><code>getBuyPrice(Player player, Material material)</code></td>
+                            <td><code>double</code></td>
+                            <td>Get buy price for a material</td>
+                        </tr>
+                        <tr>
+                            <td><code>getBestSellProduct(Player player, Material material)</code></td>
+                            <td><code>Object</code></td>
+                            <td>Get best sell product (shop-specific)</td>
+                        </tr>
+                        <tr>
+                            <td><code>detectShops()</code></td>
+                            <td><code>Map&lt;String, ShopData&gt;</code></td>
+                            <td>Detect and return all shops</td>
+                        </tr>
+                        <tr>
+                            <td><code>getDetectedShopsCount()</code></td>
+                            <td><code>int</code></td>
+                            <td>Get number of detected shops</td>
+                        </tr>
+                        <tr>
+                            <td><code>reinitialize()</code></td>
+                            <td><code>void</code></td>
+                            <td>Reinitialize the shop plugin integration</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>DupeDetector</h4>
+                <p>Utility class for detecting potential money duplication exploits.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Return Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>detectDupeItems(Player player)</code></td>
+                            <td><code>Map&lt;Material, DupeInfo&gt;</code></td>
+                            <td>Detect items where boosted sell price exceeds buy price</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>DupeInfo</h4>
+                <p>Information about a potential duplication exploit.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>material</code></td>
+                            <td><code>Material</code></td>
+                            <td>The material with dupe potential</td>
+                        </tr>
+                        <tr>
+                            <td><code>shopId</code></td>
+                            <td><code>String</code></td>
+                            <td>Shop ID where the item is sold</td>
+                        </tr>
+                        <tr>
+                            <td><code>buyPrice</code></td>
+                            <td><code>double</code></td>
+                            <td>Buy price from shop</td>
+                        </tr>
+                        <tr>
+                            <td><code>sellPrice</code></td>
+                            <td><code>double</code></td>
+                            <td>Base sell price</td>
+                        </tr>
+                        <tr>
+                            <td><code>boostedSellPrice</code></td>
+                            <td><code>double</code></td>
+                            <td>Sell price with boost applied</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Code Examples</h3>
+
+                <h4>Getting Sell Price</h4>
+                <pre><code>SigmaSellAxe plugin = (SigmaSellAxe) Bukkit.getPluginManager().getPlugin("SigmaSellAxe");
+if (plugin == null || !plugin.isEnabled()) {
+    return;
+}
+
+EconomyHook economyHook = plugin.getEconomyHook();
+double price = economyHook.getShopPrice(player, Material.DIAMOND_ORE);
+
+if (price > 0) {
+    player.sendMessage("Diamond Ore sells for: $" + price);
+} else {
+    player.sendMessage("Diamond Ore cannot be sold");
+}</code></pre>
+
+                <h4>Getting Item Boost</h4>
+                <pre><code>ConfigManager configManager = plugin.getConfigManager();
+double boost = configManager.getItemBoost("farming", "PUMPKIN");
+
+if (boost > 0) {
+    player.sendMessage("Pumpkin has a " + (boost * 100) + "% boost in farming shop");
+}</code></pre>
+
+                <h4>Checking Shop Plugin</h4>
+                <pre><code>ShopPluginManager shopManager = economyHook.getShopPluginManager();
+ShopPluginInterface activePlugin = shopManager.getActiveShopPlugin();
+
+if (activePlugin != null) {
+    String pluginName = activePlugin.getPluginName();
+    int shopCount = activePlugin.getDetectedShopsCount();
+    player.sendMessage("Active shop plugin: " + pluginName + " (" + shopCount + " shops)");
+} else {
+    player.sendMessage("No shop plugin active - using fallback prices");
+}</code></pre>
+
+                <h4>Detecting Duplication Exploits</h4>
+                <pre><code>DupeDetector dupeDetector = new DupeDetector(plugin);
+Map&lt;Material, DupeDetector.DupeInfo&gt; dupeItems = dupeDetector.detectDupeItems(player);
+
+if (!dupeItems.isEmpty()) {
+    player.sendMessage("Warning: " + dupeItems.size() + " items have dupe potential!");
+    for (Map.Entry&lt;Material, DupeDetector.DupeInfo&gt; entry : dupeItems.entrySet()) {
+        DupeDetector.DupeInfo info = entry.getValue();
+        player.sendMessage("- " + entry.getKey() + ": Buy $" + info.buyPrice + 
+            ", Sell $" + info.boostedSellPrice);
+    }
+}</code></pre>
+
+                <h4>Checking Protection Plugin Integration</h4>
+                <pre><code>// Check if Lands is available
+LandsHook landsHook = plugin.getLandsHook();
+if (landsHook.isLandsAvailable()) {
+    boolean canSell = landsHook.canPlayerSellInArea(player, location);
+    if (!canSell) {
+        player.sendMessage("You don't have permission to sell here!");
+    }
+}
+
+// Check GriefPrevention
+GriefPreventionHook gpHook = plugin.getGriefPreventionHook();
+if (gpHook.isGriefPreventionAvailable()) {
+    boolean canSell = gpHook.canPlayerSellInClaim(player, location);
+    if (!canSell) {
+        player.sendMessage("You don't have permission to sell in this claim!");
+    }
+}</code></pre>
+
+                <h3>Thread Safety</h3>
+                <p>All API methods are thread-safe and can be called from any thread. The plugin uses synchronized blocks and volatile variables to ensure thread safety, making it safe for use on Folia and other multi-threaded servers.</p>
+
+                <h3>Version Compatibility</h3>
+                <p>API methods may change between major versions. Always check the changelog for breaking changes when updating the plugin.</p>
+
+                <h3>Dependencies</h3>
+                <p>To use the API in your plugin, add SigmaSellAxe as a dependency:</p>
+                <pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;me.jayesh&lt;/groupId&gt;
+    &lt;artifactId&gt;SigmaSellAxe&lt;/artifactId&gt;
+    &lt;version&gt;2.0.7&lt;/version&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+
+                <h3>Support</h3>
+                <p>For API questions or feature requests:</p>
+                <ul>
+                    <li>Open an issue on <a href="https://github.com/jayesh-kambli/SigmaSellAxe/issues" target="_blank">GitHub</a></li>
+                    <li>Check the <a href="troubleshooting.html">Troubleshooting</a> guide</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p><strong>Version</strong>: 2.0.7 | <strong>Compatibility</strong>: Minecraft 1.21+, Spigot/Paper/Folia</p>
+            <p>&copy; 2024 SigmaSellAxe. Documentation maintained by the community.</p>
+        </footer>
+    </div>
+</body>
+</html>
+

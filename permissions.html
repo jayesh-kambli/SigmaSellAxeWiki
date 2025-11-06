@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permissions - SigmaSellAxe Wiki</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/search.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SigmaSellAxe Wiki</h1>
+            <p class="subtitle">Complete documentation for SigmaSellAxe</p>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="getting-started.html">Getting Started</a></li>
+                <li><a href="configuration.html">Configuration</a></li>
+                <li><a href="commands.html">Commands</a></li>
+                <li><a href="permissions.html" class="active">Permissions</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="integrations.html">Integrations</a></li>
+                <li><a href="api.html">API</a></li>
+                <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                <li><a href="changelog.html">Changelog</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="content">
+                <h2>Permissions</h2>
+                <p>Complete permission reference for SigmaSellAxe. All permissions use the <code>sigmasellaxe.*</code> prefix.</p>
+
+                <h3>Permission Nodes</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>sigmasellaxe.use</code></td>
+                            <td><code>true</code></td>
+                            <td>Allows players to use the Sell Axe tool</td>
+                        </tr>
+                        <tr>
+                            <td><code>sigmasellaxe.items</code></td>
+                            <td><code>true</code></td>
+                            <td>Allows players to open the sellable items GUI</td>
+                        </tr>
+                        <tr>
+                            <td><code>sigmasellaxe.give</code></td>
+                            <td><code>op</code></td>
+                            <td>Allows giving the Sell Axe to players</td>
+                        </tr>
+                        <tr>
+                            <td><code>sigmasellaxe.reload</code></td>
+                            <td><code>op</code></td>
+                            <td>Allows reloading plugin configurations</td>
+                        </tr>
+                        <tr>
+                            <td><code>sigmasellaxe.regenerate</code></td>
+                            <td><code>op</code></td>
+                            <td>Allows regenerating shop configurations</td>
+                        </tr>
+                        <tr>
+                            <td><code>sigmasellaxe.verify</code></td>
+                            <td><code>op</code></td>
+                            <td>Allows verifying configurations and checking for exploits</td>
+                        </tr>
+                        <tr>
+                            <td><code>sigmasellaxe.*</code></td>
+                            <td><code>op</code></td>
+                            <td>Grants all permissions above</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Detailed Permission Reference</h3>
+
+                <h4>sigmasellaxe.use</h4>
+                <p>Allows players to use the Sell Axe tool to sell items from containers.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Default</td>
+                            <td><code>true</code> (all players)</td>
+                        </tr>
+                        <tr>
+                            <td>What it allows</td>
+                            <td>Right-click containers with Sell Axe to sell items</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>sigmasellaxe.items</h4>
+                <p>Allows players to open the sellable items GUI.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Default</td>
+                            <td><code>true</code> (all players)</td>
+                        </tr>
+                        <tr>
+                            <td>What it allows</td>
+                            <td>Open GUI with <code>/sigmasellaxe items</code> or left-click with Sell Axe</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>sigmasellaxe.give</h4>
+                <p>Allows giving the Sell Axe to players.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Default</td>
+                            <td><code>op</code> (operators only)</td>
+                        </tr>
+                        <tr>
+                            <td>What it allows</td>
+                            <td>Use <code>/sigmasellaxe give</code> command and view server-side commands</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>sigmasellaxe.reload</h4>
+                <p>Allows reloading plugin configurations.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Default</td>
+                            <td><code>op</code> (operators only)</td>
+                        </tr>
+                        <tr>
+                            <td>What it allows</td>
+                            <td>Use <code>/sigmasellaxe reload</code> command</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>sigmasellaxe.regenerate</h4>
+                <p>Allows regenerating shop configurations.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Default</td>
+                            <td><code>op</code> (operators only)</td>
+                        </tr>
+                        <tr>
+                            <td>What it allows</td>
+                            <td>Use <code>/sigmasellaxe regenerate</code> command</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>sigmasellaxe.verify</h4>
+                <p>Allows verifying configurations and checking for exploits.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Default</td>
+                            <td><code>op</code> (operators only)</td>
+                        </tr>
+                        <tr>
+                            <td>What it allows</td>
+                            <td>Use <code>/sigmasellaxe verifyConfig</code> and <code>/sigmasellaxe verifyDupe</code> commands</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>sigmasellaxe.*</h4>
+                <p>Grants all permissions above. Use with caution.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Default</td>
+                            <td><code>op</code> (operators only)</td>
+                        </tr>
+                        <tr>
+                            <td>What it allows</td>
+                            <td>All SigmaSellAxe permissions</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Permission Setup Examples</h3>
+
+                <h4>Using LuckPerms</h4>
+                <pre><code># Give all players access to use Sell Axe
+/lp group default permission set sigmasellaxe.use true
+/lp group default permission set sigmasellaxe.items true
+
+# Give admins all permissions
+/lp group admin permission set sigmasellaxe.* true</code></pre>
+
+                <p>Or in <code>luckperms/config.yml</code>:</p>
+                <pre><code>groups:
+  default:
+    permissions:
+      - sigmasellaxe.use
+      - sigmasellaxe.items
+
+  admin:
+    permissions:
+      - sigmasellaxe.*</code></pre>
+
+                <h4>Using PermissionsEx</h4>
+                <pre><code># Default group
+default:
+  permissions:
+    - sigmasellaxe.use
+    - sigmasellaxe.items
+
+# Admin group
+admin:
+  permissions:
+    - sigmasellaxe.*</code></pre>
+
+                <h4>Using GroupManager</h4>
+                <pre><code>groups:
+  default:
+    permissions:
+      - sigmasellaxe.use
+      - sigmasellaxe.items
+  admin:
+    permissions:
+      - sigmasellaxe.*</code></pre>
+
+                <h3>Permission Best Practices</h3>
+                <ul>
+                    <li><strong>Default Access</strong> - Keep <code>sigmasellaxe.use</code> and <code>sigmasellaxe.items</code> as default <code>true</code> for normal gameplay</li>
+                    <li><strong>Admin Only</strong> - Keep admin commands (<code>reload</code>, <code>regenerate</code>, <code>verify</code>) as <code>op</code> only</li>
+                    <li><strong>Selective Access</strong> - Use permission groups to give Sell Axe to specific groups only</li>
+                    <li><strong>Security</strong> - Never give <code>sigmasellaxe.*</code> to regular players</li>
+                    <li><strong>Principle of Least Privilege</strong> - Only grant permissions that are actually needed</li>
+                </ul>
+
+                <h3>Troubleshooting Permissions</h3>
+
+                <h4>Player can't use Sell Axe</h4>
+                <ul>
+                    <li>Check if they have <code>sigmasellaxe.use</code> permission</li>
+                    <li>Verify permission plugin is working correctly</li>
+                    <li>Check server console for permission errors</li>
+                    <li>Test with <code>/lp user &lt;player&gt; info</code> (LuckPerms) or equivalent</li>
+                </ul>
+
+                <h4>Player can't open GUI</h4>
+                <ul>
+                    <li>Check if they have <code>sigmasellaxe.items</code> permission</li>
+                    <li>Verify GUI feature is enabled in config (<code>features.left-click-gui</code>)</li>
+                    <li>Check permission plugin logs</li>
+                </ul>
+
+                <h4>Admin commands not working</h4>
+                <ul>
+                    <li>Check if they have <code>op</code> status or specific permission</li>
+                    <li>Verify permission plugin recognizes the permission node</li>
+                    <li>Check for conflicting permission groups</li>
+                    <li>Use <code>/lp user &lt;player&gt; permission check sigmasellaxe.reload</code> to test</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p><strong>Version</strong>: 2.0.7 | <strong>Compatibility</strong>: Minecraft 1.21+, Spigot/Paper/Folia</p>
+            <p>&copy; 2024 SigmaSellAxe. Documentation maintained by the community.</p>
+        </footer>
+    </div>
+</body>
+</html>
+

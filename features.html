@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - SigmaSellAxe Wiki</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/search.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SigmaSellAxe Wiki</h1>
+            <p class="subtitle">Complete documentation for SigmaSellAxe</p>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="getting-started.html">Getting Started</a></li>
+                <li><a href="configuration.html">Configuration</a></li>
+                <li><a href="commands.html">Commands</a></li>
+                <li><a href="permissions.html">Permissions</a></li>
+                <li><a href="features.html" class="active">Features</a></li>
+                <li><a href="integrations.html">Integrations</a></li>
+                <li><a href="api.html">API</a></li>
+                <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                <li><a href="changelog.html">Changelog</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="content">
+                <h2>Features</h2>
+                <p>Complete overview of all SigmaSellAxe features and capabilities.</p>
+
+                <h3>Container Selling</h3>
+                <p>The core feature of SigmaSellAxe - instant selling of items from containers using a special Sell Axe tool.</p>
+
+                <h4>How It Works</h4>
+                <ol>
+                    <li>Admin gives players a special Diamond Axe (the Sell Axe)</li>
+                    <li>Players right-click containers (chests, barrels, shulkers) while holding the Sell Axe</li>
+                    <li>Plugin checks permissions, area trust, and validates items</li>
+                    <li>Items are sold using shop plugin prices (or fallback prices)</li>
+                    <li>Money is deposited to player's account via Vault</li>
+                    <li>Transaction is logged for record-keeping</li>
+                </ol>
+
+                <h4>Supported Containers</h4>
+                <ul>
+                    <li><strong>Chests</strong> - Single and double chests</li>
+                    <li><strong>Barrels</strong> - All barrel types</li>
+                    <li><strong>Shulker Boxes</strong> - All shulker box variants</li>
+                    <li><strong>Hoppers</strong> - Hopper inventories</li>
+                    <li><strong>Other Containers</strong> - Any container that implements <code>InventoryHolder</code></li>
+                </ul>
+
+                <h4>Transaction Limits</h4>
+                <ul>
+                    <li><strong>Max Items</strong>: 5,000 items per transaction</li>
+                    <li><strong>Performance</strong>: Optimized for large transactions</li>
+                    <li><strong>Thread Safety</strong>: Fully thread-safe operations</li>
+                    <li><strong>Async Processing</strong>: Non-blocking operations for better TPS</li>
+                </ul>
+
+                <h3>GUI Features</h3>
+
+                <h4>Sellable Items GUI</h4>
+                <p>Accessible via <code>/sigmasellaxe items</code> or left-clicking with the Sell Axe (if enabled).</p>
+
+                <p><strong>Features:</strong></p>
+                <ul>
+                    <li>Shows all sellable items from all shops</li>
+                    <li>Displays prices from shop plugins</li>
+                    <li>Shows boost multipliers</li>
+                    <li>Color-coded item display</li>
+                    <li>Pagination support (45 items per page)</li>
+                    <li>Real-time price updates</li>
+                </ul>
+
+                <h4>Sorting System</h4>
+                <p>The GUI includes a powerful sorting system with 4 sort types:</p>
+                <ol>
+                    <li><strong>Alphabetically A-Z</strong> - Sort items alphabetically (A to Z)</li>
+                    <li><strong>Alphabetically Z-A</strong> - Sort items alphabetically (Z to A)</li>
+                    <li><strong>Price High→Low</strong> - Sort by price (highest first)</li>
+                    <li><strong>Price Low→High</strong> - Sort by price (lowest first)</li>
+                </ol>
+
+                <p><strong>Sorting Features:</strong></p>
+                <ul>
+                    <li>Single hopper icon cycles through all sort types</li>
+                    <li>Active sort type highlighted in lore</li>
+                    <li>Player-specific preferences (persists across sessions)</li>
+                    <li>Smooth transitions between sort types</li>
+                    <li>Sort preference saved per player UUID</li>
+                </ul>
+
+                <h4>Dupe Items GUI</h4>
+                <p>Shows potential money duplication exploits. Accessible via <code>/sigmasellaxe verifyDupe</code>.</p>
+
+                <p><strong>Features:</strong></p>
+                <ul>
+                    <li>Lists items where boosted sell price > buy price</li>
+                    <li>Shows buy price, sell price, and boosted sell price</li>
+                    <li>Color-coded warnings</li>
+                    <li>Pagination support</li>
+                    <li>Detailed information for each potential dupe</li>
+                </ul>
+
+                <h3>Durability System</h3>
+                <p>Configurable durability loss system for the Sell Axe tool.</p>
+
+                <h4>Configuration</h4>
+                <pre><code>sell-axe:
+  durability:
+    enabled: true      # Enable/disable durability loss
+    lose-per-sell: 1   # Durability lost per sell operation</code></pre>
+
+                <h4>Behavior</h4>
+                <ul>
+                    <li>Durability is lost only when items are successfully sold</li>
+                    <li>If selling fails (no items, no permission, etc.), no durability is lost</li>
+                    <li>When durability reaches 0, the Sell Axe breaks normally</li>
+                    <li>Players can repair the Sell Axe using an anvil</li>
+                    <li>Diamond Axe has 1561 durability points (with <code>lose-per-sell: 1</code>, can sell ~1561 times)</li>
+                </ul>
+
+                <h3>Boost System</h3>
+                <p>Flexible boost multiplier system for increasing sell prices.</p>
+
+                <h4>Global Boost</h4>
+                <p>Set a global boost for all items in a shop:</p>
+                <pre><code>shop:
+  id: 'farming'
+global-boost: 0.5  # 50% boost for all items</code></pre>
+
+                <h4>Item-Specific Boost</h4>
+                <p>Set boost for specific items:</p>
+                <pre><code>items:
+  PUMPKIN:
+    boost: 1.0      # 100% boost
+    enabled: true
+  MELON:
+    boost: 0.5      # 50% boost
+    enabled: true</code></pre>
+
+                <h4>Boost Calculation</h4>
+                <p>The final sell price is calculated as:</p>
+                <pre><code>finalPrice = basePrice × (1 + globalBoost + itemBoost)</code></pre>
+
+                <p><strong>Example:</strong></p>
+                <ul>
+                    <li>Base price: $100</li>
+                    <li>Global boost: 0.5 (50%)</li>
+                    <li>Item boost: 1.0 (100%)</li>
+                    <li>Final price: $100 × (1 + 0.5 + 1.0) = $250</li>
+                </ul>
+
+                <h3>Transaction Logging</h3>
+                <p>Comprehensive logging system for all sell transactions.</p>
+
+                <h4>Console Logging</h4>
+                <p>All transactions are logged to console in one-liner format:</p>
+                <pre><code>[SigmaSellAxe] SELL: PlayerName sold 64 DIAMOND_ORE for $9,600.00 at world (CHEST) - Items: DIAMOND_ORE:64</code></pre>
+
+                <h4>File Logging</h4>
+                <p>Enable file logging in config:</p>
+                <pre><code>logging:
+  enabled: true
+  file-logging: true
+  log-rotation: true</code></pre>
+
+                <p><strong>Features:</strong></p>
+                <ul>
+                    <li>Logs to <code>plugins/SigmaSellAxe/logs/transactions.log</code></li>
+                    <li>Automatic log rotation</li>
+                    <li>Timestamp tracking: <code>[YYYY-MM-DD HH:MM:SS]</code></li>
+                    <li>Detailed transaction information</li>
+                    <li>One transaction per line for easy parsing</li>
+                </ul>
+
+                <h3>Debug System</h3>
+                <p>Configurable debug logging system for troubleshooting.</p>
+
+                <h4>Debug Levels</h4>
+                <pre><code>debug:
+  enabled: false
+  level: BASIC  # BASIC, DETAILED, or VERBOSE</code></pre>
+
+                <p><strong>Levels:</strong></p>
+                <ul>
+                    <li><strong>BASIC</strong> - Essential debug information (recommended for troubleshooting)</li>
+                    <li><strong>DETAILED</strong> - More detailed information including permission checks and price lookups</li>
+                    <li><strong>VERBOSE</strong> - Maximum verbosity including all API calls and internal operations</li>
+                </ul>
+
+                <h4>What Gets Logged</h4>
+                <ul>
+                    <li>Shop plugin detection</li>
+                    <li>Price fetching operations</li>
+                    <li>Configuration loading</li>
+                    <li>Error details</li>
+                    <li>Performance metrics</li>
+                    <li>Dupe detection calculations</li>
+                    <li>Protection plugin checks</li>
+                </ul>
+
+                <h3>Protection Plugin Integration</h3>
+                <p>See <a href="integrations.html">Integrations</a> for details on protection plugin support.</p>
+
+                <h3>Performance Features</h3>
+                <ul>
+                    <li><strong>Thread Safety</strong> - Fully thread-safe operations for Folia support</li>
+                    <li><strong>Efficient Caching</strong> - Optimized price lookups</li>
+                    <li><strong>Resource Limits</strong> - Prevents server overload with item count limits</li>
+                    <li><strong>Folia Support</strong> - Multi-threaded server support</li>
+                    <li><strong>Async Operations</strong> - Non-blocking economy operations</li>
+                    <li><strong>Optimized Algorithms</strong> - Fast sorting and searching</li>
+                </ul>
+
+                <h3>Smart Configuration</h3>
+                <ul>
+                    <li><strong>Auto-Detection</strong> - Automatically detects shop plugins and generates configs</li>
+                    <li><strong>Config Migration</strong> - Automatic migration between versions</li>
+                    <li><strong>Hot Reloading</strong> - Reload configs without server restart</li>
+                    <li><strong>Preservation</strong> - User customizations are preserved during updates</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p><strong>Version</strong>: 2.0.7 | <strong>Compatibility</strong>: Minecraft 1.21+, Spigot/Paper/Folia</p>
+            <p>&copy; 2024 SigmaSellAxe. Documentation maintained by the community.</p>
+        </footer>
+    </div>
+</body>
+</html>
+

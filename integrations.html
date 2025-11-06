@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrations - SigmaSellAxe Wiki</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/search.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SigmaSellAxe Wiki</h1>
+            <p class="subtitle">Complete documentation for SigmaSellAxe</p>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="getting-started.html">Getting Started</a></li>
+                <li><a href="configuration.html">Configuration</a></li>
+                <li><a href="commands.html">Commands</a></li>
+                <li><a href="permissions.html">Permissions</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="integrations.html" class="active">Integrations</a></li>
+                <li><a href="api.html">API</a></li>
+                <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                <li><a href="changelog.html">Changelog</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="content">
+                <h2>Integrations</h2>
+                <p>SigmaSellAxe integrates with various plugins to provide a complete solution. All integrations are optional except Vault (required for economy).</p>
+
+                <h3>Shop Plugins</h3>
+
+                <h4>ExcellentShop</h4>
+                <p><strong>Status:</strong> Fully Supported</p>
+
+                <p><strong>Features:</strong></p>
+                <ul>
+                    <li>Automatic shop detection</li>
+                    <li>Real-time price fetching</li>
+                    <li>Reflection-based integration (no compile dependency)</li>
+                    <li>Multi-shop support</li>
+                    <li>Permission-based pricing</li>
+                    <li>Shop access validation</li>
+                </ul>
+
+                <p><strong>Configuration:</strong></p>
+                <pre><code>economy:
+  shop-plugin: excellentshop  # or 'auto'</code></pre>
+
+                <p><strong>Detection:</strong></p>
+                <p>The plugin automatically detects ExcellentShop on startup and generates shop configurations. Shops are detected from ExcellentShop's Virtual Shop module.</p>
+
+                <h4>EconomyShopGUI</h4>
+                <p><strong>Status:</strong> Fully Supported</p>
+
+                <p><strong>Features:</strong></p>
+                <ul>
+                    <li>Full API integration</li>
+                    <li>Multi-economy type support</li>
+                    <li>Shop section detection</li>
+                    <li>Dynamic pricing with limits</li>
+                    <li>Permission checks</li>
+                    <li>Buy and sell price support</li>
+                </ul>
+
+                <p><strong>Configuration:</strong></p>
+                <pre><code>economy:
+  shop-plugin: economyshopgui  # or 'auto'</code></pre>
+
+                <p><strong>Detection:</strong></p>
+                <p>The plugin automatically detects EconomyShopGUI on startup and generates shop configurations. All shop sections are detected and configured.</p>
+
+                <h4>Shop Plugin Selection</h4>
+                <p>The plugin supports automatic shop plugin detection:</p>
+                <pre><code>economy:
+  shop-plugin: auto  # Automatically detects available shop plugin</code></pre>
+
+                <p><strong>Priority (when auto-detecting):</strong></p>
+                <ol>
+                    <li>ExcellentShop (if available)</li>
+                    <li>EconomyShopGUI (if available)</li>
+                    <li>Fallback prices (if no shop plugin)</li>
+                </ol>
+
+                <h3>Protection Plugins</h3>
+
+                <h4>Lands</h4>
+                <p><strong>Status:</strong> Fully Supported</p>
+
+                <p><strong>Features:</strong></p>
+                <ul>
+                    <li>Area trust checking</li>
+                    <li>Permission-based selling restrictions</li>
+                    <li>Seamless integration</li>
+                    <li>Respects Lands trust levels</li>
+                </ul>
+
+                <p><strong>Configuration:</strong></p>
+                <pre><code>integrations:
+  lands-integration: true</code></pre>
+
+                <p><strong>How it works:</strong></p>
+                <ul>
+                    <li>Checks if player has trust in the area</li>
+                    <li>Prevents selling if player doesn't have permission</li>
+                    <li>Respects Lands trust levels (owner, member, trusted, etc.)</li>
+                    <li>Works with Lands area boundaries</li>
+                </ul>
+
+                <h4>GriefPrevention</h4>
+                <p><strong>Status:</strong> Fully Supported</p>
+
+                <p><strong>Features:</strong></p>
+                <ul>
+                    <li>Claim boundary detection</li>
+                    <li>Permission-based selling restrictions</li>
+                    <li>Full claim protection</li>
+                    <li>Respects claim permissions</li>
+                </ul>
+
+                <p><strong>Configuration:</strong></p>
+                <pre><code>integrations:
+  griefprevention-integration: true</code></pre>
+
+                <p><strong>How it works:</strong></p>
+                <ul>
+                    <li>Checks if player is in a claim</li>
+                    <li>Verifies player has permission to sell in the claim</li>
+                    <li>Prevents selling in protected claims without permission</li>
+                    <li>Respects GriefPrevention claim flags</li>
+                </ul>
+
+                <h4>WorldGuard</h4>
+                <p><strong>Status:</strong> Fully Supported</p>
+
+                <p><strong>Features:</strong></p>
+                <ul>
+                    <li>Region flag support</li>
+                    <li>Multi-region detection</li>
+                    <li>Integration with other protection plugins</li>
+                    <li>Respects WorldGuard region flags</li>
+                </ul>
+
+                <p><strong>Configuration:</strong></p>
+                <pre><code>integrations:
+  worldguard-integration: true</code></pre>
+
+                <p><strong>How it works:</strong></p>
+                <ul>
+                    <li>Checks WorldGuard regions at the location</li>
+                    <li>Respects region flags</li>
+                    <li>Works alongside Lands and GriefPrevention</li>
+                    <li>Prevents selling in protected regions</li>
+                </ul>
+
+                <h3>Economy Plugins</h3>
+
+                <h4>Vault</h4>
+                <p><strong>Status:</strong> Required</p>
+
+                <p><strong>Features:</strong></p>
+                <ul>
+                    <li>Economy integration</li>
+                    <li>Multi-economy support (Essentials, CMI, etc.)</li>
+                    <li>Standard economy API</li>
+                    <li>Automatic economy provider detection</li>
+                </ul>
+
+                <p><strong>Required:</strong></p>
+                <p>Vault is required for the plugin to function. It provides the economy API used by SigmaSellAxe to deposit money to players.</p>
+
+                <p><strong>Supported Economy Plugins:</strong></p>
+                <ul>
+                    <li>Essentials</li>
+                    <li>CMI</li>
+                    <li>BOSEconomy</li>
+                    <li>Any economy plugin that supports Vault</li>
+                </ul>
+
+                <h3>Integration Priority</h3>
+                <p>When multiple protection plugins are installed, they are checked in this order:</p>
+                <ol>
+                    <li><strong>Lands</strong> - Checked first</li>
+                    <li><strong>GriefPrevention</strong> - Checked if Lands doesn't apply</li>
+                    <li><strong>WorldGuard</strong> - Checked if neither Lands nor GriefPrevention apply</li>
+                </ol>
+
+                <p><strong>Important:</strong> All checks must pass for selling to be allowed. If any protection plugin denies access, selling is blocked.</p>
+
+                <h3>Troubleshooting Integrations</h3>
+
+                <h4>Shop Plugin Not Detected</h4>
+                <ol>
+                    <li>Verify the shop plugin is installed and enabled</li>
+                    <li>Check server console for detection messages</li>
+                    <li>Run <code>/sigmasellaxe verifyConfig</code> to check detection</li>
+                    <li>Try <code>/sigmasellaxe regenerate</code> to re-detect shops</li>
+                    <li>Check that the shop plugin is working correctly</li>
+                </ol>
+
+                <h4>Protection Plugin Not Working</h4>
+                <ol>
+                    <li>Verify the protection plugin is installed and enabled</li>
+                    <li>Check integration is enabled in config:
+                        <pre><code>integrations:
+  lands-integration: true</code></pre>
+                    </li>
+                    <li>Check server console for integration messages</li>
+                    <li>Verify player has proper permissions in the protection plugin</li>
+                    <li>Test the protection plugin independently</li>
+                </ol>
+
+                <h4>Price Issues</h4>
+                <ol>
+                    <li>Verify shop plugin is working correctly</li>
+                    <li>Check shop configuration files</li>
+                    <li>Run <code>/sigmasellaxe verifyConfig</code> to check for issues</li>
+                    <li>Check debug logs for price fetching errors</li>
+                    <li>Verify items exist in the shop plugin</li>
+                </ol>
+
+                <h3>Integration Status</h3>
+                <p>You can check integration status in the server console on startup. The plugin displays which integrations are available and which are active.</p>
+
+                <p><strong>Example startup output:</strong></p>
+                <pre><code>- Integrations
+  ✓ ExcellentShop (active)
+  ✓ EconomyShopGUI integration enabled
+  ✓ Lands integration enabled
+  ✓ GriefPrevention integration enabled
+  ✓ WorldGuard integration enabled
+  ✓ Vault integration enabled</code></pre>
+            </section>
+        </main>
+
+        <footer>
+            <p><strong>Version</strong>: 2.0.7 | <strong>Compatibility</strong>: Minecraft 1.21+, Spigot/Paper/Folia</p>
+            <p>&copy; 2024 SigmaSellAxe. Documentation maintained by the community.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
