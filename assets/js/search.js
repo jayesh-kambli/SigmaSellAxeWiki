@@ -9,8 +9,7 @@
         { title: 'Features', url: 'features.html', content: 'container selling GUI sorting durability boost transaction logging' },
         { title: 'Integrations', url: 'integrations.html', content: 'ExcellentShop EconomyShopGUI Lands GriefPrevention WorldGuard Vault' },
         { title: 'API', url: 'api.html', content: 'developer API integration code examples ConfigManager EconomyHook ShopPluginManager' },
-        { title: 'Troubleshooting', url: 'troubleshooting.html', content: 'debug issues problems solutions errors help support' },
-        { title: 'Changelog', url: 'changelog.html', content: 'version history updates changes 2.0.7 2.0.6' }
+        { title: 'Troubleshooting', url: 'troubleshooting.html', content: 'debug issues problems solutions errors help support' }
     ];
 
     function initSearch() {
