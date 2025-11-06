@@ -1,5 +1,7 @@
 # SigmaSellAxe Wiki
 
+Complete documentation for SigmaSellAxe - Advanced Container Selling Tool for Minecraft servers.
+
 This is the GitHub Pages wiki repository for SigmaSellAxe.
 
 ## Repository Setup
