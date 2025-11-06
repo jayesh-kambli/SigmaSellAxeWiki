@@ -37,7 +37,8 @@
                 <h3>Shop Plugins</h3>
 
                 <h4>ExcellentShop</h4>
-                <p><strong>Status:</strong> Fully Supported</p>
+                <p><strong>Status:</strong> Fully Supported (Optional)</p>
+                <p><strong>Download:</strong> <a href="https://www.spigotmc.org/resources/excellentshop-⭐-the-3-in-1-shop-plugin.50696" target="_blank">SpigotMC</a></p>
 
                 <p><strong>Features:</strong></p>
                 <ul>
@@ -56,8 +57,12 @@
                 <p><strong>Detection:</strong></p>
                 <p>The plugin automatically detects ExcellentShop on startup and generates shop configurations. Shops are detected from ExcellentShop's Virtual Shop module.</p>
 
+                <p><strong>Without ExcellentShop:</strong></p>
+                <p>If ExcellentShop is not installed, the plugin will use fallback prices from <code>config.yml</code> or switch to EconomyShopGUI if available.</p>
+
                 <h4>EconomyShopGUI</h4>
-                <p><strong>Status:</strong> Fully Supported</p>
+                <p><strong>Status:</strong> Fully Supported (Optional)</p>
+                <p><strong>Download:</strong> <a href="https://www.spigotmc.org/resources/economyshopgui.69927" target="_blank">SpigotMC</a></p>
 
                 <p><strong>Features:</strong></p>
                 <ul>
@@ -76,6 +81,9 @@
                 <p><strong>Detection:</strong></p>
                 <p>The plugin automatically detects EconomyShopGUI on startup and generates shop configurations. All shop sections are detected and configured.</p>
 
+                <p><strong>Without EconomyShopGUI:</strong></p>
+                <p>If EconomyShopGUI is not installed, the plugin will use fallback prices from <code>config.yml</code> or switch to ExcellentShop if available.</p>
+
                 <h4>Shop Plugin Selection</h4>
                 <p>The plugin supports automatic shop plugin detection:</p>
                 <pre><code>economy:
@@ -91,7 +99,8 @@
                 <h3>Protection Plugins</h3>
 
                 <h4>Lands</h4>
-                <p><strong>Status:</strong> Fully Supported</p>
+                <p><strong>Status:</strong> Fully Supported (Optional)</p>
+                <p><strong>Download:</strong> <a href="https://www.spigotmc.org/resources/lands-⭕-land-claim-plugin-✅-grief-prevention-protection-gui-management-nations-wars-1-21-x-support.53313" target="_blank">SpigotMC</a></p>
 
                 <p><strong>Features:</strong></p>
                 <ul>
@@ -113,8 +122,12 @@
                     <li>Works with Lands area boundaries</li>
                 </ul>
 
+                <p><strong>Without Lands:</strong></p>
+                <p>If Lands is not installed, container sales are allowed based on permissions only (no area protection checks).</p>
+
                 <h4>GriefPrevention</h4>
-                <p><strong>Status:</strong> Fully Supported</p>
+                <p><strong>Status:</strong> Fully Supported (Optional)</p>
+                <p><strong>Download:</strong> <a href="https://www.spigotmc.org/resources/griefprevention.1884" target="_blank">SpigotMC</a></p>
 
                 <p><strong>Features:</strong></p>
                 <ul>
@@ -136,8 +149,12 @@
                     <li>Respects GriefPrevention claim flags</li>
                 </ul>
 
+                <p><strong>Without GriefPrevention:</strong></p>
+                <p>If GriefPrevention is not installed, container sales are allowed based on permissions only (no claim protection checks).</p>
+
                 <h4>WorldGuard</h4>
-                <p><strong>Status:</strong> Fully Supported</p>
+                <p><strong>Status:</strong> Fully Supported (Optional)</p>
+                <p><strong>Download:</strong> <a href="https://dev.bukkit.org/projects/worldguard" target="_blank">Bukkit</a></p>
 
                 <p><strong>Features:</strong></p>
                 <ul>
@@ -159,28 +176,67 @@
                     <li>Prevents selling in protected regions</li>
                 </ul>
 
+                <p><strong>Without WorldGuard:</strong></p>
+                <p>If WorldGuard is not installed, container sales are allowed based on permissions only (no region protection checks).</p>
+
                 <h3>Economy Plugins</h3>
 
                 <h4>Vault</h4>
-                <p><strong>Status:</strong> Required</p>
+                <p><strong>Status:</strong> Optional (Recommended)</p>
+                <p><strong>Download:</strong> <a href="https://github.com/MilkBowl/Vault/releases" target="_blank">GitHub Releases</a></p>
 
                 <p><strong>Features:</strong></p>
                 <ul>
                     <li>Economy integration</li>
-                    <li>Multi-economy support (Essentials, CMI, etc.)</li>
+                    <li>Multi-economy support (EssentialsX, CMI, etc.)</li>
                     <li>Standard economy API</li>
                     <li>Automatic economy provider detection</li>
                 </ul>
 
-                <p><strong>Required:</strong></p>
-                <p>Vault is required for the plugin to function. It provides the economy API used by SigmaSellAxe to deposit money to players.</p>
+                <p><strong>Functionality:</strong></p>
+                <p>Vault provides the economy API used by SigmaSellAxe to deposit money to players. Without Vault, economy transactions will not work.</p>
 
                 <p><strong>Supported Economy Plugins:</strong></p>
                 <ul>
-                    <li>Essentials</li>
+                    <li>EssentialsX</li>
                     <li>CMI</li>
                     <li>BOSEconomy</li>
                     <li>Any economy plugin that supports Vault</li>
+                </ul>
+
+                <h3>Dependency Summary</h3>
+                <p><strong>All dependencies are optional (soft dependencies).</strong> The plugin will work without them, but with limited functionality.</p>
+
+                <p><strong>Required:</strong></p>
+                <ul>
+                    <li>Minecraft 1.21+ (Paper, Spigot, or Folia server)</li>
+                </ul>
+
+                <p><strong>Optional (Recommended):</strong></p>
+                <ul>
+                    <li><strong>Vault</strong> - Provides economy integration API. Required for money transactions.</li>
+                    <li><strong>ExcellentShop</strong> or <strong>EconomyShopGUI</strong> - Enables automatic shop detection</li>
+                    <li><strong>Lands</strong>, <strong>GriefPrevention</strong>, or <strong>WorldGuard</strong> - Area protection integration</li>
+                </ul>
+
+                <h4>Dependency Functionality</h4>
+                <p><strong>With All Dependencies:</strong></p>
+                <ul>
+                    <li>✅ Full ExcellentShop integration with dynamic pricing</li>
+                    <li>✅ Automatic shop detection and configuration</li>
+                    <li>✅ Boost multipliers support</li>
+                    <li>✅ Lands area trust checking</li>
+                    <li>✅ GriefPrevention area trust checking</li>
+                    <li>✅ WorldGuard area trust checking</li>
+                    <li>✅ Economy transactions via Vault</li>
+                </ul>
+
+                <p><strong>Without Dependencies:</strong></p>
+                <ul>
+                    <li>⚠️ Uses fallback prices from config.yml</li>
+                    <li>⚠️ No automatic shop detection</li>
+                    <li>⚠️ No area protection checks (permissions only)</li>
+                    <li>⚠️ Economy still works if you have Vault (any economy plugin)</li>
                 </ul>
 
                 <h3>Integration Priority</h3>

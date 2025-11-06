@@ -46,13 +46,61 @@
                 <h4>Step 2: Install Dependencies</h4>
                 <p><strong>Required:</strong></p>
                 <ul>
-                    <li><strong>Vault</strong> - For economy integration</li>
+                    <li><strong>Minecraft 1.21+</strong> (Paper, Spigot, or Folia server)</li>
                 </ul>
 
-                <p><strong>Optional (but recommended):</strong></p>
+                <p><strong>Optional (Recommended):</strong></p>
                 <ul>
-                    <li><strong>ExcellentShop</strong> or <strong>EconomyShopGUI</strong> - For shop integration</li>
-                    <li><strong>Lands</strong>, <strong>GriefPrevention</strong>, or <strong>WorldGuard</strong> - For protection plugin support</li>
+                    <li><strong><a href="https://github.com/MilkBowl/Vault/releases" target="_blank">Vault</a></strong>
+                        <ul>
+                            <li>Provides economy integration API. Required for money transactions. Works with any Vault-compatible economy plugin (EssentialsX, CMI, etc.).</li>
+                        </ul>
+                    </li>
+                    <li><strong><a href="https://www.spigotmc.org/resources/excellentshop-⭐-the-3-in-1-shop-plugin.50696" target="_blank">ExcellentShop</a></strong>
+                        <ul>
+                            <li>Enables automatic shop detection. Without this, the plugin uses fallback prices from config.</li>
+                        </ul>
+                    </li>
+                    <li><strong><a href="https://www.spigotmc.org/resources/economyshopgui.69927" target="_blank">EconomyShopGUI</a></strong>
+                        <ul>
+                            <li>Enables automatic shop detection. Without this, the plugin uses fallback prices from config.</li>
+                        </ul>
+                    </li>
+                    <li><strong><a href="https://www.spigotmc.org/resources/lands-⭕-land-claim-plugin-✅-grief-prevention-protection-gui-management-nations-wars-1-21-x-support.53313" target="_blank">Lands</a></strong>
+                        <ul>
+                            <li>Area protection integration. Checks if players are trusted before allowing container sales. Without this, all container sales are allowed (only permission checks apply).</li>
+                        </ul>
+                    </li>
+                    <li><strong><a href="https://www.spigotmc.org/resources/griefprevention.1884" target="_blank">GriefPrevention</a></strong>
+                        <ul>
+                            <li>Area protection integration. Checks if players are trusted before allowing container sales. Without this, all container sales are allowed (only permission checks apply).</li>
+                        </ul>
+                    </li>
+                    <li><strong><a href="https://dev.bukkit.org/projects/worldguard" target="_blank">WorldGuard</a></strong>
+                        <ul>
+                            <li>Area protection integration. Checks if players are trusted before allowing container sales. Without this, all container sales are allowed (only permission checks apply).</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h5>Dependency Functionality</h5>
+                <p><strong>With All Dependencies:</strong></p>
+                <ul>
+                    <li>✅ Full ExcellentShop integration with dynamic pricing</li>
+                    <li>✅ Automatic shop detection and configuration</li>
+                    <li>✅ Boost multipliers support</li>
+                    <li>✅ Lands area trust checking</li>
+                    <li>✅ GriefPrevention area trust checking</li>
+                    <li>✅ WorldGuard area trust checking</li>
+                    <li>✅ Economy transactions via Vault</li>
+                </ul>
+
+                <p><strong>Without Dependencies:</strong></p>
+                <ul>
+                    <li>⚠️ Uses fallback prices from config.yml</li>
+                    <li>⚠️ No automatic shop detection</li>
+                    <li>⚠️ No area protection checks (permissions only)</li>
+                    <li>⚠️ Economy still works if you have Vault (any economy plugin)</li>
                 </ul>
 
                 <h4>Step 3: Place the Plugin</h4>
